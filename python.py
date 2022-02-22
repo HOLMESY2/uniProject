@@ -1,5 +1,7 @@
 import pandas as pd
+import json
 
-
-df = pd.read_json("Data/2021_OCTOBER.json")
-print(df)
+#converted json file to a dataframe 
+with open("Data/2021_OCTOBER.json") as f:
+ data = json.load(f)
+ print(type(data))
