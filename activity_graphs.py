@@ -84,7 +84,11 @@ plt.pie(height)
 plt.title('My bar chart!')
 plt.legend(labels = tick_label, title = "Ativity Type:")
 
-plt.show()
+
+html_str = mpld3.fig_to_html(fig)
+Html_file= open("activity_index/index4.html","w")
+Html_file.write(html_str)
+Html_file.close()
 
 
 
@@ -133,7 +137,11 @@ height = [probability, probability1, probability2, probability3, probability4, p
 plt.pie(height)
 plt.title('My bar chart!')
 plt.legend(labels = tick_label, title = "Ativity Type:")
-plt.show()
+
+html_str = mpld3.fig_to_html(fig)
+Html_file= open("activity_index/index2.html","w")
+Html_file.write(html_str)
+Html_file.close()
 
 
 #pie charts 
@@ -175,6 +183,11 @@ tick_label = [activityType, activityType1, activityType2, activityType3, activit
 height = [probability, probability1, probability2, probability3, probability4, probability5, probability6,probability7, probability8,probability9,probability10,probability11,probability12,probability13,probability14]
 plt.pie(height)
 plt.legend(labels = tick_label, title = "Activity type:")
+html_str = mpld3.fig_to_html(fig)
+Html_file= open("activity_index/index0.html","w")
+Html_file.write(html_str)
+Html_file.close()
+
 
 
 #index 6 of json 
@@ -216,8 +229,13 @@ tick_label = [activityType, activityType1, activityType2, activityType3, activit
 height = [probability, probability1, probability2, probability3, probability4, probability5, probability6,probability7, probability8,probability9,probability10,probability11,probability12,probability13,probability14]
 plt.pie(height)
 plt.legend(labels = tick_label, title = "Activity type:")
-plt.show()
-plt.show()
+
+
+html_str = mpld3.fig_to_html(fig)
+Html_file= open("activity_index/index6.html","w")
+Html_file.write(html_str)
+Html_file.close()
+
 
 #index 8 of the json file 
 activityType= data["timelineObjects"][8]["activitySegment"]["activities"][0]["activityType"]
@@ -257,7 +275,12 @@ tick_label = [activityType, activityType1, activityType2, activityType3, activit
 height = [probability, probability1, probability2, probability3, probability4, probability5, probability6,probability7, probability8,probability9,probability10,probability11,probability12,probability13,probability14]
 plt.pie(height)
 plt.legend(labels = tick_label, title = "Activity type:")
-plt.show()
+
+html_str = mpld3.fig_to_html(fig)
+Html_file= open("activity_index/index8.html","w")
+Html_file.write(html_str)
+Html_file.close()
+
 
 #index 10 of the json file 
 activityType= data["timelineObjects"][10]["activitySegment"]["activities"][0]["activityType"]
@@ -297,7 +320,11 @@ tick_label = [activityType, activityType1, activityType2, activityType3, activit
 height = [probability, probability1, probability2, probability3, probability4, probability5, probability6,probability7, probability8,probability9,probability10,probability11,probability12,probability13,probability14]
 plt.pie(height)
 plt.legend(labels = tick_label, title = "Activity type:")
-plt.show()
+
+html_str = mpld3.fig_to_html(fig)
+Html_file= open("activity_index/index10.html","w")
+Html_file.write(html_str)
+Html_file.close()
 
 
 #index 12 of the json file 
@@ -339,7 +366,12 @@ tick_label = [activityType, activityType1, activityType2, activityType3, activit
 height = [probability, probability1, probability2, probability3, probability4, probability5, probability6,probability7, probability8,probability9,probability10,probability11,probability12,probability13,probability14]
 plt.pie(height)
 plt.legend(labels = tick_label, title = "Activity type:")
-plt.show()
+
+html_str = mpld3.fig_to_html(fig)
+Html_file= open("activity_index/index12.html","w")
+Html_file.write(html_str)
+Html_file.close()
+
 
 #index 14 of json file 
 
@@ -380,7 +412,13 @@ tick_label = [activityType, activityType1, activityType2, activityType3, activit
 height = [probability, probability1, probability2, probability3, probability4, probability5, probability6,probability7, probability8,probability9,probability10,probability11,probability12,probability13,probability14]
 plt.pie(height)
 plt.legend(labels = tick_label, title = "Activity type:")
-plt.show()
+
+
+html_str = mpld3.fig_to_html(fig)
+Html_file= open("activity_index/index14.html","w")
+Html_file.write(html_str)
+Html_file.close()
+
 
 #index 16 of json file 
 
@@ -421,10 +459,14 @@ tick_label = [activityType, activityType1, activityType2, activityType3, activit
 height = [probability, probability1, probability2, probability3, probability4, probability5, probability6,probability7, probability8,probability9,probability10,probability11,probability12,probability13,probability14]
 plt.pie(height)
 plt.legend(labels = tick_label, title = "Activity type:")
-plt.show()
+
  
 
 
+html_str = mpld3.fig_to_html(fig)
+Html_file= open("activity_index/index16.html","w")
+Html_file.write(html_str)
+Html_file.close()
 
 
 
