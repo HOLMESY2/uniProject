@@ -7,7 +7,7 @@ import pymongo
 import mpld3
 
 #converted json file to a dataframe 
-with open("Data/2021_NOVEMBER.json") as f:
+with open("Data/2022_JANUARY.json") as f:
  data = json.load(f)
  print(type(data))
 
@@ -15,26 +15,9 @@ with open("Data/2021_NOVEMBER.json") as f:
 #res = [index for index in data if index[0].lower() == test.lower()]
 #print(res)
 
-one = data["timelineObjects"][1]["placeVisit"]["location"]["name"]
-three = data["timelineObjects"][3]["placeVisit"]["location"]["name"]
-five = data["timelineObjects"][5]["placeVisit"]["location"]["name"]
-seven = data["timelineObjects"][7]["placeVisit"]["location"]["name"]
-nine= data["timelineObjects"][9]["placeVisit"]["location"]["name"]
-eleven = data["timelineObjects"][11]["placeVisit"]["location"]["name"]
-thirteen = data["timelineObjects"][13]["placeVisit"]["location"]["name"]
-fifthteen = data["timelineObjects"][15]["placeVisit"]["location"]["name"]
 
 
-one1 =data["timelineObjects"][3]["placeVisit"]["duration"]["startTimestampMs"]
-two2 = data["timelineObjects"][5]["placeVisit"]["duration"]["startTimestampMs"]
 
-#working on date and time
-
-##total1 = float(one1)-float(two2)
-#import datetime
-#millseconds = float(total1)/ 1000.0
-#datetime_obj = datetime.datetime.fromtimestamp(millseconds).strftime('%Y-%m-%d %H:%M:%S.%f')
-#print(datetime_obj)
 
 
 
@@ -76,7 +59,7 @@ probability14 = data["timelineObjects"][4]["activitySegment"]["activities"][14][
 
 
 
-fig = plt.figure(figsize = (6,6))
+fig = plt.figure(figsize = (5,5))
 
 tick_label = [activityType, activityType1, activityType2, activityType3, activityType4, activityType5, activityType6, activityType7, activityType8,activityType9,activityType10,activityType11,activityType12,activityType13,activityType14]
 height = [probability, probability1, probability2, probability3, probability4, probability5, probability6,probability7, probability8,probability9,probability10,probability11,probability12,probability13,probability14]
@@ -130,7 +113,7 @@ probability14 = data["timelineObjects"][2]["activitySegment"]["activities"][14][
 
 
 
-fig = plt.figure(figsize = (6,6))
+fig = plt.figure(figsize = (5,5))
 
 tick_label = [activityType, activityType1, activityType2, activityType3, activityType4, activityType5, activityType6, activityType7, activityType8,activityType9,activityType10,activityType11,activityType12,activityType13,activityType14]
 height = [probability, probability1, probability2, probability3, probability4, probability5, probability6,probability7, probability8,probability9,probability10,probability11,probability12,probability13,probability14]
@@ -178,7 +161,7 @@ activityType14 = data["timelineObjects"][0]["activitySegment"]["activities"][14]
 probability14 = data["timelineObjects"][0]["activitySegment"]["activities"][14]["probability"]
 
 
-fig = plt.figure(figsize = (6,6))
+fig = plt.figure(figsize = (5,5))
 tick_label = [activityType, activityType1, activityType2, activityType3, activityType4, activityType5, activityType6, activityType7, activityType8,activityType9,activityType10,activityType11,activityType12,activityType13,activityType14]
 height = [probability, probability1, probability2, probability3, probability4, probability5, probability6,probability7, probability8,probability9,probability10,probability11,probability12,probability13,probability14]
 plt.pie(height)
