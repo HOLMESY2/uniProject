@@ -1,0 +1,66 @@
+.container object{
+    width: 100%;
+height: 90%;
+
+display: flex;
+align-content: space-around;
+}
+body{
+    font-family: 'Fredoka', sans-serif;
+margin: 0%;
+background-color: whitesmoke;
+color: #2095d8;
+margin-top: 2%;
+height: 100%;
+}
+header h1{
+    
+text-align: center;
+font-size: 5em;
+
+
+border-bottom: 1px solid black;
+border-top: 1px solid black;
+padding-bottom: 2%;
+margin-left: 2%;
+margin-right: 2%;
+
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;  
+
+
+}
+nav ul li{
+    display: inline-block;
+    font-size: 2em;
+    color: #2095d8;
+    font-family: 'Fredoka', sans-serif;
+
+  } 
+  nav ul li:hover{
+      
+font-style: oblique;
+  }
+  header h3{
+      text-align: center;
+      
+      position: relative;
+      margin-top: -4.5%;
+      margin-bottom: 2%;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+

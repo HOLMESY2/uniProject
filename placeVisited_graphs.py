@@ -1,4 +1,5 @@
 import json
+from mpld3 import save_html
 import numpy as np
 import matplotlib.pyplot as plt
 import pymongo
@@ -82,9 +83,11 @@ plt.scatter(x ,y )
 #plt.plot(x,y)
 plt.show()
 
+
 html_str = mpld3.fig_to_html(fig)
 Html_file= open("places_visited_index/PVindex.html","w")
 Html_file.write(html_str)
+
 Html_file.close()
 
 
@@ -149,6 +152,7 @@ y = [end,end1,end2,end3,end4,end5,end6,end7,end8,end9]
 plt.xticks(rotation='vertical')
 plt.title('Scatter Graph showing the arrival time at each location')
 plt.scatter(x ,y )
+plt.xlabel(x)
 #plt.plot(x,y)
 plt.show()
 
