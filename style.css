@@ -31,18 +31,19 @@ nav ul{
     display: flex;
     justify-content: space-evenly;  
 
-
 }
 nav ul li{
     display: inline-block;
     font-size: 2em;
     color: #2095d8;
     font-family: 'Fredoka', sans-serif;
+    border: 3px solid #2095d8;;
 
   } 
   nav ul li:hover{
       
-font-style: oblique;
+background-color: #2095d8;
+color: white;
   }
   header h3{
       text-align: center;
@@ -51,7 +52,13 @@ font-style: oblique;
       margin-top: -4.5%;
       margin-bottom: 2%;
   }
-
+nav{
+    position: sticky;
+    top: 1%;
+    z-index: 1;
+    
+   
+}
 
 
 

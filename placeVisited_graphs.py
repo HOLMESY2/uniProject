@@ -72,14 +72,18 @@ name8 = data["timelineObjects"][17]["placeVisit"]["location"]["name"]
 name9 = data["timelineObjects"][19]["placeVisit"]["location"]["name"]
 
 
-
+plt.rc('font', size=17) 
 
 x = [name,name1,name2,name3,name4,name5,name6,name7,name8,name9]
 
 y = [datetime_obj,datetime_obj1,datetime_obj2,datetime_obj3,datetime_obj4,datetime_obj5,datetime_obj6,datetime_obj7,datetime_obj8,datetime_obj9]
 plt.xticks(rotation='vertical')
-plt.title('Scatter Graph showing the arrival time at each location')
 plt.scatter(x ,y )
+plt.legend(labels = x, title = "Ativity Type:")
+plt.title('Scatter Graph showing the arrival time at each location')
+
+
+
 #plt.plot(x,y)
 plt.show()
 
@@ -90,7 +94,7 @@ Html_file.write(html_str)
 
 Html_file.close()
 
-
+fig = plt.figure(figsize = (17,8))
 end = data["timelineObjects"][1]["placeVisit"]["duration"]["endTimestampMs"]
 end1 = data["timelineObjects"][3]["placeVisit"]["duration"]["endTimestampMs"]
 end2 = data["timelineObjects"][5]["placeVisit"]["duration"]["endTimestampMs"]
@@ -146,14 +150,15 @@ name9 = data["timelineObjects"][19]["placeVisit"]["location"]["name"]
 
 
 
-
+plt.rc('font', size=17) 
 x = [name,name1,name2,name3,name4,name5,name6,name7,name8,name9]
 y = [end,end1,end2,end3,end4,end5,end6,end7,end8,end9]
 plt.xticks(rotation='vertical')
-plt.title('Scatter Graph showing the arrival time at each location')
+plt.title('Scatter Graph showing the departure time at each location')
 plt.scatter(x ,y )
-plt.xlabel(x)
-#plt.plot(x,y)
+
+plt.savefig('bank_data.png')
+
 plt.show()
 
 html_str = mpld3.fig_to_html(fig)
