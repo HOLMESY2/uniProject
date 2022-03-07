@@ -64,9 +64,10 @@ fig = plt.figure(figsize = (5,5))
 tick_label = [activityType, activityType1, activityType2, activityType3, activityType4, activityType5, activityType6, activityType7, activityType8,activityType9,activityType10,activityType11,activityType12,activityType13,activityType14]
 height = [probability, probability1, probability2, probability3, probability4, probability5, probability6,probability7, probability8,probability9,probability10,probability11,probability12,probability13,probability14]
 plt.pie(height)
-plt.title('My bar chart!')
+
 plt.legend(labels = tick_label, title = "Ativity Type:")
 
+plt.show()
 
 html_str = mpld3.fig_to_html(fig)
 Html_file= open("activity_index/index4.html","w")
@@ -118,7 +119,7 @@ fig = plt.figure(figsize = (5,5))
 tick_label = [activityType, activityType1, activityType2, activityType3, activityType4, activityType5, activityType6, activityType7, activityType8,activityType9,activityType10,activityType11,activityType12,activityType13,activityType14]
 height = [probability, probability1, probability2, probability3, probability4, probability5, probability6,probability7, probability8,probability9,probability10,probability11,probability12,probability13,probability14]
 plt.pie(height)
-plt.title('My bar chart!')
+
 plt.legend(labels = tick_label, title = "Ativity Type:")
 
 html_str = mpld3.fig_to_html(fig)

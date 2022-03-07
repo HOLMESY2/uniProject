@@ -14,7 +14,7 @@ with open("Data/2021_NOVEMBER.json") as f:
 
 #working on date and time
 
-fig = plt.figure(figsize = (17,8))
+
 address = data["timelineObjects"][1]["placeVisit"]["duration"]["startTimestampMs"]
 address1 = data["timelineObjects"][3]["placeVisit"]["duration"]["startTimestampMs"]
 address2 = data["timelineObjects"][5]["placeVisit"]["duration"]["startTimestampMs"]
@@ -73,17 +73,17 @@ name9 = data["timelineObjects"][19]["placeVisit"]["location"]["name"]
 
 
 plt.rc('font', size=17) 
-
+fig = plt.figure(figsize = (17,8))
 x = [name,name1,name2,name3,name4,name5,name6,name7,name8,name9]
 
 y = [datetime_obj,datetime_obj1,datetime_obj2,datetime_obj3,datetime_obj4,datetime_obj5,datetime_obj6,datetime_obj7,datetime_obj8,datetime_obj9]
 plt.xticks(rotation='vertical')
-plt.scatter(x ,y )
-plt.legend(labels = x, title = "Ativity Type:")
+
+plt.scatter(x, y, c ="blue")
 plt.title('Scatter Graph showing the arrival time at each location')
 
 
-
+plt.ticklabel_format
 #plt.plot(x,y)
 plt.show()
 
@@ -91,7 +91,6 @@ plt.show()
 html_str = mpld3.fig_to_html(fig)
 Html_file= open("places_visited_index/PVindex.html","w")
 Html_file.write(html_str)
-
 Html_file.close()
 
 fig = plt.figure(figsize = (17,8))
@@ -163,5 +162,42 @@ plt.show()
 
 html_str = mpld3.fig_to_html(fig)
 Html_file= open("places_visited_index/PVindex1.html","w")
+Html_file.write(html_str)
+Html_file.close()
+
+
+
+activityType= data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][0]["placeId"]
+probability = data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][0]["placeId"]
+activityType1 = data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][1]["placeId"]
+probability1 = data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][1]["placeId"]
+activityType2 = data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][2]["placeId"]
+probability2 =data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][2]["placeId"]
+activityType3 =data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][3]["placeId"]
+probability3 = data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][3]["placeId"]
+activityType4 = data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][4]["placeId"]
+probability4 = data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][4]["placeId"]
+activityType5 =data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][5]["placeId"]
+probability5 = data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][5]["placeId"]
+activityType6 = data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][6]["placeId"]
+probability6 = data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][6]["placeId"]
+activityType7 = data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][7]["placeId"]
+probability7 = data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][7]["placeId"]
+activityType8 = data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][8]["placeId"]
+probability8 = data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][8]["placeId"]
+fig = plt.figure(figsize = (5,5))
+
+
+
+tick_label = [activityType, activityType1, activityType2, activityType3, activityType4, activityType5, activityType6, activityType7, activityType8]
+height = [probability, probability1, probability2, probability3, probability4, probability5, probability6,probability7, probability8]
+plt.pie(height)
+
+plt.legend(labels = tick_label, title = "Ativity Type:")
+
+plt.show()
+
+html_str = mpld3.fig_to_html(fig)
+Html_file= open("activity_index/index4.html","w")
 Html_file.write(html_str)
 Html_file.close()
