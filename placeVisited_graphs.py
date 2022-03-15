@@ -194,12 +194,14 @@ placeid7 = data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][7
 confidence7 = data["timelineObjects"][1]["placeVisit"]["otherCandidateLocations"][7]['locationConfidence']
 
 fig = plt.figure(figsize = (5,5))
-plt.title('Other Locations for '+ name + ' in the form of PlaceId')
+plt.title(' For ' + name +  ' in the form of PlaceId')
 tick_label = [placeid,placeid1,placeid2,placeid3,placeid4,placeid5,placeid6,placeid7]
 height = [confidence,confidence1,confidence2,confidence3,confidence4,confidence5,confidence6,confidence7]
-plt.pie(height)
-plt.legend(labels = tick_label, title = "Ativity Type:")
-
+plt.pie(height,  autopct = '%1.1f%%'
+       
+)
+plt.legend(labels = tick_label, title = "PlaceId:")
+plt.show()
 
 html_str = mpld3.fig_to_html(fig)
 Html_file= open("otherlocation_piecharts/index.html","w")
@@ -227,11 +229,13 @@ placeid7 = data["timelineObjects"][3]["placeVisit"]["otherCandidateLocations"][7
 confidence7 = data["timelineObjects"][3]["placeVisit"]["otherCandidateLocations"][7]['locationConfidence']
 
 fig = plt.figure(figsize = (5,5))
-plt.title('Other Locations for '+ name + ' in the form of PlaceId')
+plt.title('For '+ name + ' in the form of PlaceId')
 tick_label = [placeid,placeid1,placeid2,placeid3,placeid4,placeid5,placeid6,placeid7]
 height = [confidence,confidence1,confidence2,confidence3,confidence4,confidence5,confidence6,confidence7]
-plt.pie(height)
-plt.legend(labels = tick_label, title = "Ativity Type:")
+plt.pie(height,  autopct = '%1.1f%%'
+       
+)
+plt.legend(labels = tick_label, title = "PlaceId:")
 
 
 html_str = mpld3.fig_to_html(fig)
@@ -260,11 +264,13 @@ placeid7 = data["timelineObjects"][5]["placeVisit"]["otherCandidateLocations"][7
 confidence7 = data["timelineObjects"][5]["placeVisit"]["otherCandidateLocations"][7]['locationConfidence']
 
 fig = plt.figure(figsize = (5,5))
-plt.title('Other Locations for '+ name + ' in the form of PlaceId')
+plt.title('or '+ name + ' in the form of PlaceId')
 tick_label = [placeid,placeid1,placeid2,placeid3,placeid4,placeid5,placeid6,placeid7]
 height = [confidence,confidence1,confidence2,confidence3,confidence4,confidence5,confidence6,confidence7]
-plt.pie(height)
-plt.legend(labels = tick_label, title = "Ativity Type:")
+plt.pie(height,  autopct = '%1.1f%%'
+       
+)
+plt.legend(labels = tick_label, title = "PlaceId:")
 
 
 html_str = mpld3.fig_to_html(fig)
@@ -286,11 +292,13 @@ confidence3 = data["timelineObjects"][7]["placeVisit"]["otherCandidateLocations"
 
 
 fig = plt.figure(figsize = (5,5))
-plt.title('Other Locations for '+ name + ' in the form of PlaceId')
+plt.title('For '+ name + ' in the form of PlaceId')
 tick_label = [placeid,placeid1,placeid2,placeid3,placeid4,placeid5,placeid6,placeid7]
 height = [confidence,confidence1,confidence2,confidence3,confidence4,confidence5,confidence6,confidence7]
-plt.pie(height)
-plt.legend(labels = tick_label, title = "Ativity Type:")
+plt.pie(height,  autopct = '%1.1f%%'
+       
+)
+plt.legend(labels = tick_label, title = "PlaceId:")
 
 
 html_str = mpld3.fig_to_html(fig)
@@ -313,11 +321,13 @@ confidence3 = data["timelineObjects"][9]["placeVisit"]["otherCandidateLocations"
 
 
 fig = plt.figure(figsize = (5,5))
-plt.title('Other Locations for '+ name + ' in the form of PlaceId')
+plt.title('For '+ name + ' in the form of PlaceId')
 tick_label = [placeid,placeid1,placeid2,placeid3,placeid4,placeid5,placeid6,placeid7]
 height = [confidence,confidence1,confidence2,confidence3,confidence4,confidence5,confidence6,confidence7]
-plt.pie(height)
-plt.legend(labels = tick_label, title = "Ativity Type:")
+plt.pie(height,  autopct = '%1.1f%%'
+       
+)
+plt.legend(labels = tick_label, title = "PlaceId:")
 
 
 html_str = mpld3.fig_to_html(fig)
@@ -346,11 +356,13 @@ placeid7 = data["timelineObjects"][11]["placeVisit"]["otherCandidateLocations"][
 confidence7 = data["timelineObjects"][11]["placeVisit"]["otherCandidateLocations"][7]['locationConfidence']
 
 fig = plt.figure(figsize = (5,5))
-plt.title('Other Locations for '+ name + ' in the form of PlaceId')
+plt.title('For '+ name + ' in the form of PlaceId')
 tick_label = [placeid,placeid1,placeid2,placeid3,placeid4,placeid5,placeid6,placeid7]
 height = [confidence,confidence1,confidence2,confidence3,confidence4,confidence5,confidence6,confidence7]
-plt.pie(height)
-plt.legend(labels = tick_label, title = "Ativity Type:")
+plt.pie(height,  autopct = '%1.1f%%'
+       
+)
+plt.legend(labels = tick_label, title = "PlaceId:")
 
 
 html_str = mpld3.fig_to_html(fig)
@@ -372,11 +384,13 @@ confidence3 = data["timelineObjects"][13]["placeVisit"]["otherCandidateLocations
 
 
 fig = plt.figure(figsize = (5,5))
-plt.title('Other Locations for '+ name + ' in the form of PlaceId')
+plt.title('For '+ name + ' in the form of PlaceId')
 tick_label = [placeid,placeid1,placeid2,placeid3,placeid4,placeid5,placeid6,placeid7]
 height = [confidence,confidence1,confidence2,confidence3,confidence4,confidence5,confidence6,confidence7]
-plt.pie(height)
-plt.legend(labels = tick_label, title = "Ativity Type:")
+plt.pie(height,  autopct = '%1.1f%%'
+       
+)
+plt.legend(labels = tick_label, title = "PlaceId:")
 
 
 html_str = mpld3.fig_to_html(fig)
@@ -397,11 +411,13 @@ confidence3 = data["timelineObjects"][15]["placeVisit"]["otherCandidateLocations
 
 
 fig = plt.figure(figsize = (5,5))
-plt.title('Other Locations for '+ name + ' in the form of PlaceId')
+plt.title('For '+ name + ' in the form of PlaceId')
 tick_label = [placeid,placeid1,placeid2,placeid3,placeid4,placeid5,placeid6,placeid7]
 height = [confidence,confidence1,confidence2,confidence3,confidence4,confidence5,confidence6,confidence7]
-plt.pie(height)
-plt.legend(labels = tick_label, title = "Ativity Type:")
+plt.pie(height,  autopct = '%1.1f%%'
+       
+)
+plt.legend(labels = tick_label, title = "PlaceId:")
 
 
 html_str = mpld3.fig_to_html(fig)
@@ -422,11 +438,13 @@ confidence3 = data["timelineObjects"][17]["placeVisit"]["otherCandidateLocations
 
 
 fig = plt.figure(figsize = (5,5))
-plt.title('Other Locations for '+ name + ' in the form of PlaceId')
+plt.title('For '+ name + ' in the form of PlaceId')
 tick_label = [placeid,placeid1,placeid2,placeid3,placeid4,placeid5,placeid6,placeid7]
 height = [confidence,confidence1,confidence2,confidence3,confidence4,confidence5,confidence6,confidence7]
-plt.pie(height)
-plt.legend(labels = tick_label, title = "Ativity Type:")
+plt.pie(height,  autopct = '%1.1f%%'
+       
+)
+plt.legend(labels = tick_label, title = "PlaeId:")
 
 
 html_str = mpld3.fig_to_html(fig)
@@ -451,11 +469,13 @@ confidence5 = data["timelineObjects"][19]["placeVisit"]["otherCandidateLocations
 
 
 fig = plt.figure(figsize = (5,5))
-plt.title('Other Locations for '+ name + ' in the form of PlaceId')
+plt.title('For '+ name + ' in the form of PlaceId')
 tick_label = [placeid,placeid1,placeid2,placeid3,placeid4,placeid5,placeid6,placeid7]
 height = [confidence,confidence1,confidence2,confidence3,confidence4,confidence5,confidence6,confidence7]
-plt.pie(height)
-plt.legend(labels = tick_label, title = "Ativity Type:")
+plt.pie(height,  autopct = '%1.1f%%'
+       
+)
+plt.legend(labels = tick_label, title = "PlaceId:")
 
 
 html_str = mpld3.fig_to_html(fig)
