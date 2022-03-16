@@ -20,7 +20,7 @@ header{
     margin-left: 30%;
     border-radius: 5px;
     position: relative;
-    top: -135%;
+    top: -145%;
   z-index: 0;
   box-shadow:inset  0px -2px 20px black,5px 10px 10px black;
   background-color: #5690EB;
@@ -28,7 +28,9 @@ header{
   font-family: 'Hind Siliguri', sans-serif;
 }
 header h1{
-font-size: 2.5em;
+font-size: 2.5vw;
+}header h3{
+    font-size: 1.2vw;
 }
 
 nav ul{
@@ -46,11 +48,14 @@ top: 0%;
 
 nav ul li{
     display: inline-block;
-    font-size: 1.3em;
+    font-size: 1.5vw;
 color: #E3E3E3;
  margin-right: 10px;
      padding: 5px;
 
+  }
+  nav ul li:hover{
+      color: yellow;
   }
  div .img{
       width: 40px;
@@ -67,7 +72,7 @@ color: #E3E3E3;
   .activity  h2 {
 float: right;
 margin-top: -35%;
-font-size: 2.2em;
+font-size: 1.9vw;
 color: #E3E3E3;
 margin-right: 2%;
 background-color: #5690EB;
@@ -77,15 +82,15 @@ border-radius: 5px;
   }
   .activity p{
      color:#5690EB ;
-     font-size: 1.1em;
+     font-size: 1.2vw;
      float: right;
      text-align: right;
      margin-right: 2%;
-     margin-top: -30%;
+     margin-top: -25%;
   }
   .piechart h2{
      text-align: center;
-      margin-top: -5%;
+      margin-top: -10%;
       color: #E3E3E3;
       margin-right: 2%;
       background-color: #5690EB;
@@ -155,11 +160,15 @@ justify-content: space-between;
     position: relative;
     top: 10%;
     left: 5%;
+    width: 90%;
+    height: auto;
 }
 .places .img2{
     position: relative;
     top: 13%;
     left: 5%;
+    width: 90%;
+    height: auto;
 }
 .otherpie .other {
     text-align: center;
@@ -178,7 +187,7 @@ justify-content: space-between;
 
 .containerother .item{
     width: 30%;
-    height: 100%;
+    height: auto;
     margin: 0;  
       margin-top: 0;
       padding-bottom: -15%;
