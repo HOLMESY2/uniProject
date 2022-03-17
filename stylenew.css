@@ -21,7 +21,7 @@ header{
     border-radius: 5px;
     position: relative;
     top: -145%;
-  z-index: 0;
+  z-index: 0.5;
   box-shadow:inset  0px -2px 20px black,5px 10px 10px black;
   background-color: #5690EB;
   color: #E3E3E3;
@@ -42,8 +42,7 @@ padding-bottom: 5px;
  padding-top: 5px;
 align-items: flex-end;
 box-shadow:inset 0px -2px 20px black;
-position: sticky;
-top: 0%;
+
 }
 
 nav ul li{
@@ -99,9 +98,11 @@ border-radius: 5px;
       border-radius: 5px;
 margin-left: 30%;
 margin-right: 30%;
+font-size: 1.2vw;
   }
   .activity{
       margin-left: 2%;
+      z-index: 0;
   }
   .container{
     padding: 0;
@@ -121,7 +122,7 @@ justify-content: space-between;
       padding-bottom: -15%;
            }
 .piechart div{
-    margin-top: -32%;
+    margin-top: 0%;
               
 }
 .places{
@@ -140,21 +141,21 @@ justify-content: space-between;
   padding: 5px;
   margin-right:75% ;
   border-radius: 5px;
-  font-size: 2.2em;
+  font-size: 1.9vw;
   text-align: center;
 }
 .places p{
     position: relative;
     top: 8%; 
     margin-left: 2%;
-    font-size: 1.1em;
+    font-size: 1.2VW;
 }
 .places .location {
     text-align: center;
-    margin-top: 10%;
+    margin-top: 7%;
     position: relative;
     left: 35%;
-    font-size: 1.5em;
+    font-size: 1.2vw;
 }
 .places .img1{
     position: relative;
@@ -172,8 +173,8 @@ justify-content: space-between;
 }
 .otherpie .other {
     text-align: center;
-    margin-top: -25%;
-    margin-bottom: 10%;
+    margin-top: -30%;
+    margin-bottom: 20%;
     font-size: 1.5em;
     background-color: #5690EB;
     border-radius: 5px;
@@ -196,7 +197,7 @@ justify-content: space-between;
            }
 
  .otherpie{
-         margin-top: 20%;
+         margin-top: 25%;
   }
   .row2 .item{
     width: 30%;
@@ -233,7 +234,7 @@ justify-content: space-between;
            }
 .confirmation{
     background-color: #5690EB;
-    height: 150%;
+    height: 180%;
     clip-path:polygon(0 0 ,100% 15%, 100%  80%, 0% 100%) ;
     margin-top: -10%;
     box-shadow:inset  0px -2px 20px black,5px 10px 10px black;
@@ -258,18 +259,47 @@ justify-content: space-between;
 .confirmation  img{
     position:relative;
     top: 12%;
-    left: 12%;
+    left: 5%;
+    width: 90%;
+    height: auto;
 }
 #header{
     box-shadow:inset  0px -2px 20px black,5px 10px 10px black;
     margin-left: 40%;
   margin-right: 40%;
+  margin-top: -5%;
   text-align: center;
   border-radius: 5px;
   background-color: #5690EB;
   color: #E3E3E3;
   padding: 5px;
-  font-size: 2.2em;
+  font-size: 1.9vw;
   position: relative;
   right: 2%;
+}
+.example{
+    background-color: #5690EB; 
+    padding: 5px;
+    font-size: 1.2vw;
+    border-radius: 5px;
+    text-align: center;
+    margin-right: 85%;
+    box-shadow:inset  0px -2px 20px black,5px 10px 10px black;
+    margin-top: 5%;
+    margin-left: 2%;
+    color: white;
+}
+.graphmanual img{
+    margin-left: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 20%;
+    height: auto;
+}
+.graphmanual{
+    color: #5690EB;
+    font-size: 1.2vw;
+}
+.graphmanual .icon{
+    width: 40px;
 }
