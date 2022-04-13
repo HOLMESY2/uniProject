@@ -1,25 +1,18 @@
 from sqlite3 import Cursor
+from tkinter import Y
 from unicodedata import name
+from xml.etree.ElementTree import tostringlist
 import pandas as pd
 import json
 import matplotlib.pyplot as plt
 import pymongo
 import mpld3
+import re
+import sqlite3
 
-#converted json file to a dataframe 
-with open("Data/2021_NOVEMBER.json") as f:
- data = json.load(f)
- print(type(data))
-
-#test = 'p'
-#res = [index for index in data if index[0].lower() == test.lower()]
-#print(res)
-
-
-
-
-
-
+#loads up file as a dictionary
+with open("uploads/newUpload.json") as f:
+    data=json.load(f)
 
 
 
