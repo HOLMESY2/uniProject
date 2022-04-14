@@ -39,11 +39,13 @@ if query == convert_time:
     print('this is the same file')
     cursor.execute('DROP TABLE IF EXISTS activity')
     cursor.execute('DROP TABLE IF EXISTS places')
+    cursor.execute('DROP TABLE IF EXISTS otherlocation')
     connection.commit()
 else:
     print('different files code need to run')
     cursor.execute('DROP TABLE IF EXISTS activity')
     cursor.execute('DROP TABLE IF EXISTS places')
+    cursor.execute('DROP TABLE IF EXISTS otherlocation')
     connection.commit()
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS activity(
@@ -56,8 +58,20 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS places(
    
    Placeid TEXT (20),
    Name TEXT(200),
-   Start Time VARCHAR(20),
-   End Time VARCHAR(20)
+   Start_Time VARCHAR(20),
+   End_Time VARCHAR(20),
+   confirm_status VARCHAR(100),
+   Location_confidence VARCHAR(100)
+
+
+  );
+""")
+cursor.execute("""CREATE TABLE IF NOT EXISTS otherlocation(
+   
+   Name TEXT(200),
+   other_location VARCHAR(100),
+   otherLprobability VARCHAR(100)
+
   );
 """)
 
@@ -66,8 +80,11 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS places(
 for d in data["timelineObjects"]:
     #  print(d) d is all the place visits and the actvity segments in the file 
     for line in d:
+        segment = line
         if "activitySegment" in line:
-         segment = line
+         cursor.execute("""
+         INSERT INTO activity (ActivityId)VALUES(?)""",[segment])
+         connection.commit()
          x = d.get("activitySegment")
     #  print(x) x is the first activity segment 
          Y = x.get("activities")
@@ -77,19 +94,75 @@ for d in data["timelineObjects"]:
           probability = mylist.get('probability')
           probability = int(probability)
           cursor.execute("""
-          INSERT INTO activity (Activity,Probability,ActivityId)VALUES(?,?,?)""",[activitytype,probability,segment])
+          INSERT INTO activity (Activity,Probability)VALUES(?,?)""",[activitytype,probability])
           connection.commit() 
     for  line in d : 
-        
+        place = line
+
         if "placeVisit" in line:
-         place = line
-         print(place) 
-         x = d.get("placeVisit")
-         Y = x.get("location")
-         name = Y.get('name')
          cursor.execute("""
-         INSERT INTO places (Name,Placeid)VALUES(?,?)""",[name,place])
+         INSERT INTO places (Placeid)VALUES(?)""",[place])
+         connection.commit()
+         placevisit = d.get("placeVisit")
+         
+         location = placevisit.get("location")
+         duration = placevisit.get("duration")
+         other_location = placevisit.get("otherCandidateLocations")
+         for mylist in location:
+          name = location.get('name')
+         
+         for mylist in duration:
+          starttime = duration.get('startTimestamp') 
+          endtime = duration.get('endTimestamp')
+
+
+         cursor.execute("""
+         INSERT INTO places (Name,Start_Time,End_Time)VALUES(?,?,?)""",[name,starttime,endtime])
+       
          connection.commit() 
+         
+
+for d in data["timelineObjects"]:
+    for line in d:
+        if "placeVisit" in line:
+             x = d.get("placeVisit")
+        
+             other_location = x.get("otherCandidateLocations")
+             location = x.get("location")
+             name = location.get('name')
+             cursor.execute("""
+             INSERT INTO otherlocation (Name)VALUES(?)""",[name])
+             connection.commit()
+             for mylist in other_location:
+              Other_location = mylist.get('name') 
+              locationConfidence = mylist.get('locationConfidence')
+              cursor.execute("""
+              INSERT INTO otherlocation (other_location,otherLprobability)VALUES(?,?)""",[Other_location,locationConfidence])
+             
+              connection.commit() 
+for d in data["timelineObjects"]:
+    for line in d:
+        if "placeVisit" in line:
+             placevisit= d.get("placeVisit")
+             for mylist in placevisit:
+              confirmationstatus = mylist.get('editConfirmationStatus')
+              confirmationstatus = eval(confirmationstatus)
+              locationconfidence = mylist.get('locationConfidence')
+              locationconfidence = eval(locationconfidence)
+              cursor.execute("""
+              INSERT INTO places (confirm_status,Location_confidence)VALUES(?,?)""",[confirmationstatus,locationconfidence])
+              connection.commit() 
+
+             
+       
+             
+             
+         
+         
+        
+         
+        
+        
          
          
 

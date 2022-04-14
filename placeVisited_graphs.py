@@ -1,13 +1,13 @@
 from calendar import c
 import json
 
-from django import conf
+
 from mpld3 import save_html
 import numpy as np
 import matplotlib.pyplot as plt
 import pymongo
 import mpld3
-from prettytable import PrettyTable
+
 import datetime
 import pandas as pd
 
