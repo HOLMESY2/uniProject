@@ -1,8 +1,10 @@
 
+from re import X
 from select import select
 from sqlite3 import Cursor
 import sqlite3
 from unicodedata import name
+from matplotlib import axes
 import pandas as pd
 import json
 import matplotlib.pyplot as plt
@@ -10,8 +12,7 @@ import os
 import time
 import sys
 import mpld3
-
-from numpy import True_
+import numpy as np
 import os.path
 
 #loads up file as a dictionary
@@ -56,7 +57,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS activity(
 """)
 cursor.execute("""CREATE TABLE IF NOT EXISTS places(
    
-   Placeid TEXT (20),
+   
    Name TEXT(200),
    Start_Time VARCHAR(20),
    End_Time VARCHAR(20),
@@ -82,9 +83,7 @@ for d in data["timelineObjects"]:
     for line in d:
         segment = line
         if "activitySegment" in line:
-         cursor.execute("""
-         INSERT INTO activity (ActivityId)VALUES(?)""",[segment])
-         connection.commit()
+        
          x = d.get("activitySegment")
     #  print(x) x is the first activity segment 
          Y = x.get("activities")
@@ -100,9 +99,7 @@ for d in data["timelineObjects"]:
         place = line
 
         if "placeVisit" in line:
-         cursor.execute("""
-         INSERT INTO places (Placeid)VALUES(?)""",[place])
-         connection.commit()
+       
          placevisit = d.get("placeVisit")
          
          location = placevisit.get("location")
@@ -170,146 +167,194 @@ for d in data["timelineObjects"]:
 
 
 
+def graph_data():
+    cursor.execute("SELECT Activity, Probability FROM activity WHERE Activity = 'IN_PASSENGER_VEHICLE'  ")
+    x = []
+    y = []
+    for row in cursor.fetchall():
+        x.append(row[0])
+        y.append(row[1])
+        
+    fig = plt.figure(figsize =(7, 7))
+    plt.pie(y,labels =  y,startangle = 90)
+    plt.title("IN_PASSENGER_VEHICLE")
+    plt.axis('equal')
+   
+    html_str = mpld3.fig_to_html(fig)
+    Html_file= open("activity_index_upload/index1.html","w")
+    Html_file.write(html_str)
+    Html_file.close()
+graph_data()
+ 
+
+def graph_data():
+    cursor.execute("SELECT Activity, Probability FROM activity WHERE Activity = 'IN_BUS'  ")
+    x = []
+    y = []
+    for row in cursor.fetchall():
+        x.append(row[0])
+        y.append(row[1])
+        
+    fig = plt.figure(figsize =(7, 7))
+    plt.pie(y,labels =  y,startangle = 90, 
+        wedgeprops = {"edgecolor" : "black",
+                      'linewidth': 0.5,
+                      'antialiased': True})
+    plt.title("IN_BUS")
+    plt.axis('equal')
+
+    html_str = mpld3.fig_to_html(fig)
+    Html_file= open("activity_index_upload/index2.html","w")
+    Html_file.write(html_str)
+    Html_file.close()
+graph_data()
+def graph_data():
+    cursor.execute("SELECT Activity, Probability FROM activity WHERE Activity = 'MOTORCYCLING'  ")
+    x = []
+    y = []
+    for row in cursor.fetchall():
+        x.append(row[0])
+        y.append(row[1])
+        
+    fig = plt.figure(figsize =(7, 7))
+    plt.pie(y,labels =  y,startangle = 90, 
+        wedgeprops = {"edgecolor" : "black",
+                      'linewidth': 0.5,
+                      'antialiased': True})
+    plt.title("MOTORCYCLING")
+    plt.axis('equal')
+
+    html_str = mpld3.fig_to_html(fig)
+    Html_file= open("activity_index_upload/index3.html","w")
+    Html_file.write(html_str)
+    Html_file.close()
+graph_data()
+def graph_data():
+    cursor.execute("SELECT Activity, Probability FROM activity WHERE Activity = 'STILL'  ")
+    x = []
+    y = []
+    for row in cursor.fetchall():
+        x.append(row[0])
+        y.append(row[1])
+        
+    fig = plt.figure(figsize =(7, 7))
+    plt.pie(y,labels =  y,startangle = 90, 
+        wedgeprops = {"edgecolor" : "black",
+                      'linewidth': 0.5,
+                      'antialiased': True})
+    plt.title("STILL")
+    plt.axis('equal')
+ 
+    html_str = mpld3.fig_to_html(fig)
+    Html_file= open("activity_index_upload/index4.html","w")
+    Html_file.write(html_str)
+    Html_file.close()
+graph_data()
+def graph_data():
+    cursor.execute("SELECT Activity, Probability FROM activity WHERE Activity = 'WALKING'  ")
+    x = []
+    y = []
+    for row in cursor.fetchall():
+        x.append(row[0])
+        y.append(row[1])
+        
+    fig = plt.figure(figsize =(7, 7))
+    plt.pie(y,labels =  y,startangle = 90, 
+        wedgeprops = {"edgecolor" : "black",
+                      'linewidth': 0.5,
+                      'antialiased': True})
+    plt.title("WALKING")
+    plt.axis('equal')
+    
+    html_str = mpld3.fig_to_html(fig)
+    Html_file= open("activity_index_upload/index5.html","w")
+    Html_file.write(html_str)
+    Html_file.close()
+graph_data()
+def graph_data():
+    cursor.execute("SELECT Activity, Probability FROM activity WHERE Activity = 'CYCLING'  ")
+    x = []
+    y = []
+    for row in cursor.fetchall():
+        x.append(row[0])
+        y.append(row[1])
+        
+    fig = plt.figure(figsize =(7, 7))
+    plt.pie(y,labels =  y,startangle = 90, 
+        wedgeprops = {"edgecolor" : "black",
+                      'linewidth': 0.5,
+                      'antialiased': True})
+    plt.title("CYCLING")
+    plt.axis('equal')
+   
+    html_str = mpld3.fig_to_html(fig)
+    Html_file= open("activity_index_upload/index6.html","w")
+    Html_file.write(html_str)
+    Html_file.close()
+graph_data()
+
+def graph_data():
+    cursor.execute("SELECT Name, Start_Time FROM places  ")
+    x = []
+    y = []
+    for row in cursor.fetchall():
+        x.append(row[0])
+        y.append(row[1])
+        
+    fig = plt.figure(figsize =(18, 12))
+    plt.scatter(y,x)
+    plt.title("The time the user started at each location")
+    plt.xticks(rotation=90, ha ="right")
+    plt.xticks(y)
+    spacing = 0.300
+    fig.subplots_adjust(bottom=spacing)
+   
+    fig.savefig("activity_index_upload/index7.png")
+graph_data()
+def graph_data():
+    cursor.execute("SELECT Name, End_Time FROM places  ")
+    x = []
+    y = []
+    for row in cursor.fetchall():
+        x.append(row[0])
+        y.append(row[1])
+        
+    fig = plt.figure(figsize =(18, 12))
+    plt.scatter(y,x)
+    plt.title("The time the user finished at each location ")
+    plt.xticks(rotation=90, ha ="right")
+    plt.xticks(y)
+    spacing = 0.300
+    fig.subplots_adjust(bottom=spacing)
+   
+   
+    fig.savefig("activity_index_upload/index8.png")
+graph_data()
+
+def graph_data():
+    cursor.execute("SELECT Name, Location_confidence FROM places  ")
+    x = []
+    y = []
+    for row in cursor.fetchall():
+        x.append(row[0])
+        y.append(row[1])
+        
+    fig = plt.figure(figsize =(18, 8))
+    plt.scatter(y,x)
+    plt.title("The location confidence taken from each loation the user has visited ")
+    plt.xticks(rotation=90, ha ="right")
+    
+    fig.savefig("activity_index_upload/index10.png")
+    
+graph_data()
 
 
 
 
-
-
-
-
-
-
-#         maxid =cursor.execute("select  _rowid_ from  activity order by _rowid_ desc ")
-#         maxid = cursor.fetchone()[0]
-                  
-
-
-#         list = []
-#         list1 = []
 
 
  
 
-
- 
-
-# activity =cursor.execute("select Activity from activity WHERE ActivityId = 'activitySegment'")
-# activity = cursor.fetchone()[0]
-# print(activity)
-# #  activity =cursor.execute("select * from activity WHERE Activity = 'MOTORCYCLING'")
-# #  activity = cursor.fetchone()[0]
-# #  list.append(activity)
-# #  activity =cursor.execute("select * from activity WHERE Activity = 'STILL'")
-# #  activity = cursor.fetchone()[0]
-# #  list.append(activity)
-# #  activity =cursor.execute("select * from activity WHERE Activity = 'WALKING'")
-# #  activity = cursor.fetchone()[0]
-# #  list.append(activity)
-# #  activity =cursor.execute("select * from activity WHERE Activity = 'CYCLING'")
-# #  activity = cursor.fetchone()[0]
-# #  list.append(activity)
-# #  activity =cursor.execute("select * from activity WHERE Activity = 'IN_TRAIN'")
-# #  activity = cursor.fetchone()[0]
-# #  list.append(activity)
-# #  activity =cursor.execute("select * from activity WHERE Activity = 'IN_SUBWAY'")
-# #  activity = cursor.fetchone()[0]
-# #  list.append(activity)
-# #  activity =cursor.execute("select * from activity WHERE Activity = 'FLYING'")
-# #  activity = cursor.fetchone()[0]
-# #  list.append(activity)
-# #  activity =cursor.execute("select * from activity WHERE Activity = 'RUNNING'")
-# #  activity = cursor.fetchone()[0]
-# #  list.append(activity)
-# #  activity =cursor.execute("select * from activity WHERE Activity = 'IN_FERRY'")
-# #  activity = cursor.fetchone()[0]
-# #  list.append(activity)
-# #  activity =cursor.execute("select * from activity WHERE Activity = 'IN_TRAM'")
-# #  activity = cursor.fetchone()[0]
-# #  list.append(activity)
-# #  activity =cursor.execute("select * from activity WHERE Activity = 'SKIING'")
-# #  activity = cursor.fetchone()[0]
-# #  list.append(activity)
-# #  activity =cursor.execute("select * from activity WHERE Activity = 'SAILING'")
-# #  activity = cursor.fetchone()[0]
-# #  list.append(activity)
-# #  activity =cursor.execute("select * from activity WHERE Activity = 'IN_VEHICLE'")
-# #  activity = cursor.fetchone()[0]
-# #  list.append(activity)
-
-
- 
-#         # activity =cursor.execute("select probability from activity WHERE Activity = 'IN_PASSENGER_VEHICLE'")
-#         # activity = cursor.fetchone()[0]
-#         # list1.append(activity)
-#         # activity =cursor.execute("select probability from activity WHERE Activity = 'IN_BUS'")
-#         # activity = cursor.fetchone()[0]
-#         # list1.append(activity)
-# #  activity =cursor.execute("select probability from activity WHERE Activity = 'MOTORCYCLING'")
-# #  activity = cursor.fetchone()[0]
-# #  list1.append(activity)
-# #  activity =cursor.execute("select probability from activity WHERE Activity = 'STILL'")
-# #  activity = cursor.fetchone()[0]
-# #  list1.append(activity)
-# #  activity =cursor.execute("select probability from activity WHERE Activity = 'WALKING'")
-# #  activity = cursor.fetchone()[0]
-# #  list1.append(activity)
-# #  activity =cursor.execute("select probability from activity WHERE Activity = 'CYCLING'")
-# #  activity = cursor.fetchone()[0]
-# #  list1.append(activity)
-# #  activity =cursor.execute("select probability from activity WHERE Activity = 'IN_TRAIN'")
-# #  activity = cursor.fetchone()[0]
-# #  list1.append(activity)
-# #  activity =cursor.execute("select probability from activity WHERE Activity = 'IN_SUBWAY'")
-# #  activity = cursor.fetchone()[0]
-# #  list1.append(activity)
-# #  activity =cursor.execute("select probability from activity WHERE Activity = 'FLYING'")
-# #  activity = cursor.fetchone()[0]
-# #  list1.append(activity)
-# #  activity =cursor.execute("select probability from activity WHERE Activity = 'RUNNING'")
-# #  activity = cursor.fetchone()[0]
-# #  list1.append(activity)
-# #  activity =cursor.execute("select probability from activity WHERE Activity = 'IN_FERRY'")
-# #  activity = cursor.fetchone()[0]
-# #  list1.append(activity)
-# #  activity =cursor.execute("select probability from activity WHERE Activity = 'IN_TRAM'")
-# #  activity = cursor.fetchone()[0]
-# #  list1.append(activity)
-# #  activity =cursor.execute("select probability from activity WHERE Activity = 'SKIING'")
-# #  activity = cursor.fetchone()[0]
-# #  list1.append(activity)
-# #  activity =cursor.execute("select probability from activity WHERE Activity = 'SAILING'")
-# #  activity = cursor.fetchone()[0]
-# #  list1.append(activity)
-# #  activity =cursor.execute("select probability from activity WHERE Activity = 'IN_VEHICLE'")
-# #  activity = cursor.fetchone()[0]
-# #  list1.append(activity)
-#         # fig = plt.figure(figsize = (5,5))
-
-# #  tick_label = [list]
-# #  height = [list1]
-
-
-#         # plt.plot(list1, list)
-       
-
-
-# #  plt.legend( labels =list1, title = "Ativity Type:")
-
-#         # plt.show()
-
-# # html_str = mpld3.fig_to_html(fig)
-# # Html_file= open("activity_index_upload/index4.html","w")
-# # Html_file.write(html_str)
-# # Html_file.close()
-
- 
-
-
- 
-
-# print(list)
-# # print(list1)
 
 
        

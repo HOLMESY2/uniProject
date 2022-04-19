@@ -6,34 +6,11 @@
         <title>Document</title>
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap" rel="stylesheet">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        
     <style>
-        .places{
-           
-           text-align: center;
-           border-bottom: 1px solid black;
-           margin-right: 2%;
-           margin-left: 2%;
-           padding-bottom: 2%;
        
-        }
-        .placesub{
-            text-align: center;
-           font-family: 'Fredoka', sans-serif;
-           font-size: 3em;
-           margin-top: 10%;
-           margin-right: 2%;
-           margin-left: 2%;
-        }
         .item{
 width: 35%;
 height: 60%;
@@ -45,8 +22,9 @@ margin: 0;
   padding-bottom: 0;
        }
        .example{
-           margin-left: 2%;
-           font-size: 2em;
+           margin-left: 5%;
+           font-size: 1.8em;
+           margin-top: 5%;
        }
        .main p{
 font-size: 2em;
@@ -73,32 +51,84 @@ ul  .icon {
     position: relative;
     left: 0%;
 }
+.places{
+           font-size: 1.5em;
+       }
+       .place{
+           margin-top: 0;
+           text-align: center;
+           font-size: 1em;
+       }
+       ol{
+           margin-left: 5%;
+           font-size: 1.2em;
+           line-height: 30px;
+       }
+       .pie{
+           margin-left: 5%;
+           margin-top: 7%;
+           font-size: 1.4em;
+           margin-bottom: 5%;
+       }
+      
 </style>
 </head>
 <body>
 
     <body>
-        <header>
-            <h1>Exctracting Json Data<br class="SUBHEADING"></h1>
+        
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="home.html">Home</a>
+            <a href="activity.html">Activity Segment</a>
+            <a href="places.html">Places Visited</a>
+            <a href="graph_manual.html">User Manual</a>
+            <a href="http://localhost:3000/fileToUpload.php">User Upload</a>
+          </div>
+          
+          <div id="main">
+            
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+          
+            <div>          <img src="images/maps.png" alt="">
+  </div></div>
+          
+          <script>
+          function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+          }
+          
+          function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+          }
+          </script>
+          <header><h1>EXTRACTING JSON DATA<br class="SUBHEADING"></h1>
             <h3>USING PYTHON TO EXTRACT THE DATA FROM A GOOGLE TAKEOUT JSON FILE </h3>
-                </header>
-                <nav>
-                    <ul>
-                        <a href="home.html"><li>HOME</li></a>
-                        <a href="actvity.html"><li>ACTI VITY SEGMENT</li></a>
-                        <a href="places.html"><li>PLACES VISITED</li></a>
-                       <a href="graph_manual.html"><li>GRAPH MANUAL</li></a> 
-                    </ul>
-                </nav>
-                <h2 class="placesub">Graph/Chart Manual</h2>
-        <h3 class="places">This section will assist you with the functionality of the graphs </h3>
+          </header>
+                <h2 class="places">USER MANUAL</h2>
+        <h3 class="place">THIS PAGE WILL ASSIST THE USER IN HOW THE WEBSITE WORKS INCLUDING HOW THE GRAPHS WORK </BR> ALSO HOW THEY CAN IMPORT THEIR GOOGLE TAKOUT JSON FILES AND HAVE THEIR DATA ANALYSED AND PREVIEWED ON THE WEBPAGE</h3>
 <div  class="main" >
-<h2 class="example">Example Pie Chart</h2>
+<h2 class="example">USER UPLOAD</h2>
 
+<ol>
+    <li>The user needs to go to the <a href="https://r.search.yahoo.com/_ylt=AwrINyY9815izUsAMTEM34lQ;_ylu=Y29sbwNpcjIEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1650418622/RO=10/RU=https%3a%2f%2ftakeout.google.com%2f/RK=2/RS=fWyn3ElndoOIZD.17fP4Qejp62E-">Google takeout</a> website and sign into their google account</li>
+    <li>From their they will have a choice of 48 services in whih google takeout can take data from, the ser willchoosethe option labeled 'Location History'</li>
+    <li>The next step will give the user some options however the default values will work for this webpage, and then click export</li>
+    <li>Finally once downloaded the user can visit <a href="http://localhost:3000/fileToUpload.php">user upload</a> page and upload their json file to be previewed </li>
+</ol>
+
+<h2 class="example">INTERACTIVE CHART GUIDE</h2>
                 <div><object class="item" data="activity_index\index2.html" type="text/html"></object></div>
 
-<p>For the data that I have colleced I have split the into different charts /graphs, pie charts as seen above in the example and there is also scatter graphs  </p>
+<div class="pie">The pie chart above is an example of what a users data could possibly look like</div>
+<ol>
+    <li>The interactive charts have controls in the bottom left corner when user hoversover chart. The first control on the right of these three, allows you to zoom in on the charts</li>
 
+    <li>The middle icon allows the uer to move the chart around which can be helpful if they have already zoomed in</li>
+    <li>The final icon on the left when pressed resets the chart to it's original shape </li>
+</ol>
 
 
 

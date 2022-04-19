@@ -7,25 +7,10 @@
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap" rel="stylesheet">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    </head>
     <style>
-        .places{
-           
-           text-align: center;
-           border-bottom: 1px solid black;
-           margin-right: 2%;
-           margin-left: 2%;
-           padding-bottom: 2%;
-       
-        }
+        
         .placesub{
             text-align: center;
            font-family: 'Fredoka', sans-serif;
@@ -34,32 +19,62 @@
            margin-right: 2%;
            margin-left: 2%;
         }
+        .img1, .img2{
+            width: 80%;
+            height: auto;
+        }
+        .img2{
+            margin-top: 5%;
+        }
     </style>
 
 
 </head>
 <body>
-    <header>
-        <h1>Exctracting Json Data<br class="SUBHEADING"></h1>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="home.html">Home</a>
+        <a href="activity.html">Activity Segment</a>
+        <a href="places.html">Places Visited</a>
+        <a href="graph_manual.html">User Manual</a>
+        <a href="http://localhost:3000/fileToUpload.php">User Upload</a>
+      </div>
+      
+      <div id="main">
+        
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+      
+        <div>          <img src="images/maps.png" alt="">
+</div></div>
+      
+      <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+      
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+      }
+      </script>
+       <header><h1>EXTRACTING JSON DATA<br class="SUBHEADING"></h1>
         <h3>USING PYTHON TO EXTRACT THE DATA FROM A GOOGLE TAKEOUT JSON FILE </h3>
+           
             </header>
-            <nav>
-                <ul>
-                    <a href="home.html"><li>HOME</li></a>
-                    <a href="actvity.html"><li>ACTI VITY SEGMENT</li></a>
-                    <a href="places.html"><li>PLACES VISITED</li></a>
-                   <a href="graph_manual.html"><li>GRAPH MANUAL</li></a> 
-                </ul>
-            </nav>
-            <h2 class="placesub">Places Visited</h2>
-    <h3 class="places">This section of the data has all been taken from the places visited segment within the Json file,<br> you can view the json file in plain text to see where the data has been taken from <a href="Data\2021_NOVEMBER -.html">here</a> </h3>
+</body>
             
-            
-            <div class="container">
-            <object data="places_visited_index\PVindex.html" type="text/html"></object>
-            <object data="places_visited_index\PVindex1.html" type="text/html"></object>
-
-        </div>
+<div class="places">
+    <h2 id="places">PLACES VISITED SEGMENT</h2>
+    <p><strong>THIS SECTION OF THE JSON FILE IS DATA WHICH HAS BEEN COLLECTED FROM THE WITHIN THE PLACES VISTED SEGMENT. <br>THIS DATA INCLUDES THE NAMES OF THE PLACES VISITED, AND THE OTHER POSSIBLE LOCATIONS IT COULD BE. </strong></p>
+    
+    
+    <h2 class="location">LOCATIONS VISITED</h2>
+    <img class="img1" src="images/Figure_1.png" alt="">
+    <img class="img2" src="images/Figure_2.png" alt="">
+    
+    
+    </div>
 
 
 

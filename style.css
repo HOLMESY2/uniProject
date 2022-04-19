@@ -1,71 +1,97 @@
-.container object{
-    width: 100%;
-height: 90%;
+body {
+    font-family: "Lato", sans-serif;
+    margin: 0%;
+  }
+  
+  .sidenav {
+    height: 100%;
+    width:0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #6d3dba;
+    overflow-x:hidden ;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color:#818181 ;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 9px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 
-display: flex;
-align-content: space-around;
-}
-body{
-    font-family: 'Fredoka', sans-serif;
-margin: 0%;
-background-color:white 
-;
-color: #2095d8;
-
-height: 100%;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+    position: fixed;
+    top: 0;
+    background-color: #6d3dba;
+    height: 100%;
+    color: white;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+iframe{
+    float: right;
+    z-index: 0;
 }
 header{
-    margin-top: 0%;
+    text-align: center;
+    margin-right: 30%;
+    margin-left: 30%;
+    position: absolute;
+    top: 10px;
+  z-index: 1;
+  width: 40%;
+  background-color: #6d3dba
+  ;
+  color: white;
+  font-family: 'Hind Siliguri', sans-serif;
+}#main img{
+    width: 30px;
+    height: 30px ;
+    position: relative;
+   top: 830px;
+   
 }
-header h1{
-    
-text-align: center;
-font-size: 5em;
-
-background-color: white;
-box-shadow: 0px 8px 10px #888888;
-padding-bottom: 2%;
+.places{
+  margin-top: 15%;
+}
+.places h2{
+  margin-top: 5%;
+}
+.places{
+           
+  text-align: center;
+  margin-right: 2%;
+  margin-left: 2%;
+  padding-bottom: 2%;
 
 }
-
-nav ul{
-    list-style: none;
-    display: flex;
-    justify-content: left;  
-background-color: white;
-
+.places h3{
+  font-size: 1.3em;
 }
-nav ul li{
-    display: inline-block;
-    font-size: 1.5em;
-    
-    font-family: 'Fredoka', sans-serif;
-    background-color: white;
-color: #2095d8;
-border-left: solid black 1px;
-border-right: solid black 1px;
-margin-right: 10px;
-padding: 5px;
-  } 
-  nav ul li:hover{
-background-color:#2095d8 ;
-color: white;
-  }
-  header h3{
-      text-align: center;
-      
-      position: relative;
-      margin-top: -4.5%;
-      margin-bottom: 2%;
-  }
-  nav{
-    margin-top: 1%;
-  }
-
-
-
-
-
 
 
 
