@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS Time(
   );
 """)
 
-modified_time = os.path.getmtime(r'uploads/newUpload.json')
+modified_time = os.path.getmtime('uploads/newUpload.json')
 convert_time = time.ctime(modified_time)
 
 
@@ -36,13 +36,13 @@ query = cursor.execute('SELECT * from Time ORDER BY Date_and_time DESC LIMIT 1, 
 query = cursor.fetchone()[0]
 
 if query == convert_time:
-    print('this is the same file')
+   
     cursor.execute('DROP TABLE IF EXISTS activity')
     cursor.execute('DROP TABLE IF EXISTS places')
     cursor.execute('DROP TABLE IF EXISTS otherlocation')
     connection.commit()
 else:
-    print('different files code need to run')
+   
     cursor.execute('DROP TABLE IF EXISTS activity')
     cursor.execute('DROP TABLE IF EXISTS places')
     cursor.execute('DROP TABLE IF EXISTS otherlocation')
@@ -60,8 +60,8 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS places(
    Name TEXT(200),
    Start_Time VARCHAR(20),
    End_Time VARCHAR(20),
-   confirm_status VARCHAR(100),
    Location_confidence VARCHAR(100)
+  
 
 
   );
@@ -110,6 +110,7 @@ for d in data["timelineObjects"]:
          other_location = placevisit.get("otherCandidateLocations")
          for mylist in location:
           name = location.get('name')
+          locationConf = location.get('locationConfidence')
          
          for mylist in duration:
           starttime = duration.get('startTimestamp') 
@@ -117,7 +118,7 @@ for d in data["timelineObjects"]:
 
 
          cursor.execute("""
-         INSERT INTO places (Name,Start_Time,End_Time)VALUES(?,?,?)""",[name,starttime,endtime])
+         INSERT INTO places (Name,Start_Time,End_Time,Location_confidence)VALUES(?,?,?,?)""",[name,starttime,endtime,locationConf])
        
          connection.commit() 
          
@@ -139,18 +140,6 @@ for d in data["timelineObjects"]:
               cursor.execute("""
               INSERT INTO otherlocation (other_location,otherLprobability)VALUES(?,?)""",[Other_location,locationConfidence])
              
-              connection.commit() 
-for d in data["timelineObjects"]:
-    for line in d:
-        if "placeVisit" in line:
-             placevisit= d.get("placeVisit")
-             for mylist in placevisit:
-              confirmationstatus = mylist.get('editConfirmationStatus')
-              confirmationstatus = eval(confirmationstatus)
-              locationconfidence = mylist.get('locationConfidence')
-              locationconfidence = eval(locationconfidence)
-              cursor.execute("""
-              INSERT INTO places (confirm_status,Location_confidence)VALUES(?,?)""",[confirmationstatus,locationconfidence])
               connection.commit() 
 
              
@@ -204,12 +193,10 @@ for d in data["timelineObjects"]:
 
 
  
-#         activity =cursor.execute("select * from activity WHERE Activity = 'IN_PASSENGER_VEHICLE'")
-#         activity = cursor.fetchone()[0]
-#         list.append(activity)
-#         activity =cursor.execute("select * from activity WHERE Activity = 'IN_BUS'")
-#         activity = cursor.fetchone()[0]
-#         list.append(activity)
+
+# activity =cursor.execute("select Activity from activity WHERE ActivityId = 'activitySegment'")
+# activity = cursor.fetchone()[0]
+# print(activity)
 # #  activity =cursor.execute("select * from activity WHERE Activity = 'MOTORCYCLING'")
 # #  activity = cursor.fetchone()[0]
 # #  list.append(activity)
