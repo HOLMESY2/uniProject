@@ -302,10 +302,12 @@ def graph_data():
         y.append(row[1])
         
     fig = plt.figure(figsize =(18, 12))
-    plt.scatter(y,x)
+    fig.set_figheight(23)
+    plt.scatter(x,y)
     plt.title("The time the user started at each location")
-    plt.xticks(rotation=90, ha ="right")
-    plt.xticks(y)
+    plt.xticks(rotation=45, ha ="right")
+    plt.xticks(x)
+   
     spacing = 0.300
     fig.subplots_adjust(bottom=spacing)
    
@@ -319,11 +321,12 @@ def graph_data():
         x.append(row[0])
         y.append(row[1])
         
-    fig = plt.figure(figsize =(18, 12))
-    plt.scatter(y,x)
+    fig = plt.figure(figsize =(18, 23))
+    # fig.set_figheight(23)
+    plt.scatter(x,y,color="green")
     plt.title("The time the user finished at each location ")
-    plt.xticks(rotation=90, ha ="right")
-    plt.xticks(y)
+    plt.xticks(rotation=45, ha ="right")
+    plt.xticks(x)
     spacing = 0.300
     fig.subplots_adjust(bottom=spacing)
    
@@ -339,10 +342,11 @@ def graph_data():
         x.append(row[0])
         y.append(row[1])
         
-    fig = plt.figure(figsize =(18, 8))
-    plt.scatter(y,x)
+    fig = plt.figure(figsize =(17, 8))
+    fig.set_figheight(10)
+    plt.bar(y,x)
     plt.title("The location confidence taken from each loation the user has visited ")
-    plt.xticks(rotation=90, ha ="right")
+    plt.xticks(rotation=70, ha ="right")
     
     fig.savefig("activity_index_upload/index10.png")
     
